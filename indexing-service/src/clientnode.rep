@@ -1,0 +1,5 @@
+class ClientNode
+{
+    SLOT(requestUrl(const QUrl& url, int depth));
+    SIGNAL(response(const QUrl& url, const QList<QVariant>& links));
+}

@@ -1,0 +1,29 @@
+#include "indexingservice.h"
+
+IndexingService::IndexingService()
+{
+//    getter_ = ActorManager::spawn<HttpGetter>();
+    server_ = ActorManager::spawn<CrawlServer>();
+}
+
+QString IndexingService::request()
+{
+//    ActorManager::send(getter_, "request", url, depth);
+
+    // We request CrawlServer to take all links in url specified
+//    ActorManager::send(server_, "crawlRequest", url, depth);
+    QString clientName(clientId_++);
+    QRemoteObjectHost * clientNode = new QRemoteObjectHost(clientName, QStringLiteral("local:registry"));
+    ClientNode client(server_);
+
+    clientNode->enableRemoting(&client);
+    currentClients_.insert(clientNode);
+
+    return clientName;
+
+}
+
+void IndexingService::destroyClient(ClientNode *node)
+{
+
+}

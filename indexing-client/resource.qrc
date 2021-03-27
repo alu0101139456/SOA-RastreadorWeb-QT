@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/rec/gif">
+        <file>profile-pic.jpeg</file>
+        <file>loader.gif</file>
+    </qresource>
+</RCC>

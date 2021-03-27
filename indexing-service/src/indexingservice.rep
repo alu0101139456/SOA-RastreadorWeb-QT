@@ -1,0 +1,5 @@
+class IndexingService
+{
+    SLOT(QString request());
+    SLOT(void disconnectClient(QString clientName));
+};
